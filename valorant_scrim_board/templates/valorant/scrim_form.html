@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Scrim募集の作成{% endblock %}
+
+{% block content %}
+<form method="POST">{% csrf_token %}
+    <div>
+        <input name="team_name" type="text" placeholder="チーム名" />
+    </div>
+    <div>
+        <input name="average_rank" type="text" placeholder="ランク帯" />
+    </div>
+    <div>
+        <input name="map" type="text" placeholder="チーム名" />
+    </div>
+    <div>
+        <textarea type="text" name="comment" placeholder="コメント"></textarea>
+    </div>
+    </div>
+    <button type="submit">送信</button>
+    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+        data-bs-target="#deleteModal-{{object.pk}}">
+        削除
+    </button>
+    {% include 'nippo/nippo-delete.html' %}
+</form>
+
+{% endblock %}

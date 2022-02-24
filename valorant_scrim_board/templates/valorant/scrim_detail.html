@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="card mx-auto my-5 w-50" style="min-width:300px;">
+        <div class="card-header">
+            対戦日時: {{ object.start_at }}
+        </div>
+        <div class="card-body pb-3">
+            {% comment %} <h3 class="card-title mb-3 px-2" style="border-bottom:solid 1px #f4f4f4;">
+                {{ object.team_name }}
+            </h3> {% endcomment %}
+            <p class="card-text">{{ object.team_name }}</p>
+            <p class="card-text">{{ object.start_at }}</p>
+            <p class="card-text">{% for rank in object.average_rank.all %}{{ rank.name }} {% endfor %}</p>
+            <p class="card-text">{{ object.map }}</p>
+            <p class="card-text">{{ object.comment }}</p>
+        </div>
+        <div class="card-footer">
+            <a href={% url 'scrim_list' %} class="btn btn-danger btn-sm">戻る</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

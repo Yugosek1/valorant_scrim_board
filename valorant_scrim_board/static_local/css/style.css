@@ -1,0 +1,34 @@
+.card,
+.card-header,
+.card-body,
+.card-footer {
+    border-radius: 0px !important;
+}
+
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.custom-form label {
+    display: inline-block;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    border: solid 1px #ccc;
+    transition: 0.2s;
+    padding: 6px 18px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 3px;
+}
+
+input[type="checkbox"]:checked+label {
+    background: #dc3545;
+    color: #fff;
+}
+
+.form-check.form-check-inline {
+    margin-left: -1rem;
+    margin-right: -1rem;
+}

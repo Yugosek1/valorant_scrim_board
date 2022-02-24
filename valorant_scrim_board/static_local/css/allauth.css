@@ -1,0 +1,44 @@
+html {
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 200px;
+    box-sizing: border-box;
+    background-color: #f8f9fa;
+
+}
+
+body {
+    background-color: #f8f9fa;
+}
+.allauth_container {
+    width: 80%;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+h2 {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.allauth_container .allauth_form {
+    background-color: #f4f4f4;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.4);
+}
+
+.allauth_form input {
+    margin-bottom: 20px;
+}
+
+.allauth_form span {
+    font-size: 10px;
+    text-align: right;
+}
+
+.allauth_form p {
+    margin: 5px 0;
+    text-align: center;
+    font-size: 10px;
+}

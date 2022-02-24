@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-light p-3 p-sm-5 mb-4 ">
+    <div class="container">
+        {% if request.user.is_authenticated %}
+        <div class="mt-3 d-flex justify-content-end">
+            <a href={% url "scrim_create" %} class="btn btn-outline-danger float-right">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                </svg>
+            </a>
+        </div>
+        {% endif %}
+        <div class="card-deck">
+            <div class="row">
+                {% for obj in object_list %}
+                <div class="col-md-3">
+                    <div class="card border-dark my-3 mx-auto">
+                        <div href={% url 'scrim_detail' obj.pk %} class="card-body">
+                            <h6 class="card-title">
+                                {% if obj.user == request.user %}
+                                <a href={% url 'scrim_update' obj.pk %} class="link-danger">
+                                    {{ obj.team_name }}<span style="font-size:10px;">(編集)</span>
+                                    {% else %}
+                                    <a href={% url 'scrim_detail' obj.pk %} class="link-danger">
+                                        {{ obj.team_name }}
+                                        {% endif %}
+                                    </a>
+                            </h6>
+                            <p class="card-text">{{ obj.start_at }}</p>
+                            <p class="card-text">{% for rank in obj.average_rank.all %}{{ rank.name }} {% endfor %}</p>
+                            <p class="card-text">{{ obj.map }}</p>
+                            <p class="card-text">{{ obj.comment }}</p>
+                        </div>
+                        <div class="card-footer">
+                            by
+                            {% if obj.user == request.user %}
+                            <span class="badge bg-primary">あなた</span>
+                            <a class="btn btn-primary btn-sm" href="{% url 'scrim_update' obj.pk %}"
+                                role="button">編集</a>
+                            <button type="button" class="btn btn-danger btn-sm text-right" data-bs-toggle="modal"
+                                data-bs-target="#deleteModal-{{obj.pk}}">
+                                削除
+                            </button>
+                            {% include 'valorant/scrim_delete.html' %}
+                            {% else %}
+                            <span class="badge bg-secondary">{{ obj.user.profile.discord_name }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

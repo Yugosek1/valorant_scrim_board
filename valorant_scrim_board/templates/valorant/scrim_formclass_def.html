@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% if object %}
+チーム名「{{ object.team_name }}」の編集
+{% else %}
+scrim募集の新規作成
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container my-3" style="max-width:700px;">
+    <form method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <button class="form-control btn btn-danger" type="submit">送信</button>
+    </form>
+</div>
+{% endblock %}
