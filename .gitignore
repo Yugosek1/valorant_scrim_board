@@ -75,3 +75,6 @@ __pypackages__/
 
 # Environments
 venv/
+
+#for_mac
+.DS_Store

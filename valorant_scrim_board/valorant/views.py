@@ -27,7 +27,7 @@ class ScrimDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx["site_name"] = "itc.tokyo"
+        ctx["site_name"] = "testval"
         return ctx
 
 class ScrimCreateFormView(LoginRequiredMixin, CreateView):

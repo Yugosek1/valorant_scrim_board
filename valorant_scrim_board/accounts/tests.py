@@ -7,8 +7,8 @@ User = get_user_model()
 
 class AccountsTestCase(TestCase):
     def __init__(self, *args, **kwargs):
-        self.email = "test@itc.tokyo"
-        self.password = "somepassword"
+        self.email = "test@gmail.com"
+        self.password = "testpassword"
         super().__init__(*args, **kwargs)
 
     def setUp(self):
