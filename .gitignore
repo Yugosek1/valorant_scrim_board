@@ -75,6 +75,7 @@ __pypackages__/
 
 # Environments
 venv/
+venvtest/
 
 #for_mac
 .DS_Store
