@@ -1,15 +1,26 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
 
 {% block content %}
 <div class="container my-3" style="max-width:700px;">
-
     <div class="text-center my-3">
-        アカウント設定
+        <h3>アカウント設定</h3>
     </div>
 
-    <form method="POST"> {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">保存</button>
-
+    <form method="POST">
+        {% csrf_token %}
+        {% comment %} {{ form.as_p }} {% endcomment %}
+        <div class="form-group row">
+            <div class="form-group col-6">
+                <label>{{ form.username.label }}</label>
+                {{ form.username | add_class:'form-control' }}
+            </div>
+            <div class="form-group col-6">
+                <label>{{ form.discord_name.label }}</label>
+                {{ form.discord_name | add_class:'form-control' }}
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="form-control btn-danger">保存</button>
 </div>
 {% endblock %}
