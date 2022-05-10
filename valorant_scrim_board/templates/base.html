@@ -5,9 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% include 'css.html' %}
+    <link rel="icon" href="/media/pages/lfs_logo.ico">
+    {% block meta_desc %}
+    {% if meta_description %}
+      <meta name="description" content={{meta_description}}>
+    {% endif %}
+    {% endblock %}
     {% block extra_css %}{% endblock %}
-    <title>{% block head_title %}{% endblock %}</title>
+    <title>{% block head_title %}VALORANTスクリム募集掲示板 - Looking for Scrims!{% endblock %}</title>
     {% block extra_head %}{% endblock %}
+    
 </head>
 
 <body>
