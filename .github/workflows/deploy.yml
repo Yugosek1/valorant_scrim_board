@@ -23,4 +23,4 @@ jobs:
             source venv/bin/activate
             git pull origin main
             python3 manage.py collectstatic
-            sudo systemctl restart valorant_scrim_board
+            sudo service apache2 restart
